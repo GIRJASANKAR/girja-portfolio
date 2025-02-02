@@ -55,7 +55,7 @@ const Profile = () => {
     'NPM',
   ];
   return (
-    <div className="min-h-screen p-8 sm:p-20 flex flex-col items-center justify-center gap-8 text-center relative overflow-hidden">
+    <div className="min-h-screen p-8 sm:p-20 flex flex-col items-center justify-center gap-8 text-center relative overflow-hidden my-background">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute w-96 h-96 bg-purple-500/10 rounded-full -top-48 -left-48 filter blur-3xl animate-pulse"></div>
