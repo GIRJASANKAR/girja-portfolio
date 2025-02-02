@@ -80,7 +80,7 @@ const Profile = () => {
         </h1>
 
         <div className="mb-6">
-          <p className="text-xl sm:text-2xl mt-4 font-mono bg-black/10 px-4 py-2 rounded-lg inline-block">
+          <p className="text-xl sm:text-2xl mt-4 font-mono bg-black/10 px-4 py-2 rounded-lg inline-block text-white">
             <span className="animate-pulse">🚀 Website Under Construction</span>
           </p>
         </div>
