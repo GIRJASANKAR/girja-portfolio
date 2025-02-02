@@ -101,7 +101,7 @@ const Profile = () => {
           {skills.map((skill, index) => (
             <span
               key={skill}
-              className="px-3 py-2 bg-gray-800/50 rounded-full text-sm animate-skillIn"
+              className="px-3 py-2 bg-gray-800/50 rounded-full text-white   text-sm animate-skillIn"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {skill}
