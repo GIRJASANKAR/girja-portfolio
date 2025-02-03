@@ -79,6 +79,10 @@ const Profile = () => {
           Girja Sankar Tiwari
         </h1>
 
+        <h1 className="text-5xl sm:text-3xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
+          Frontend Developer
+        </h1>
+
         <div className="mb-6">
           <p className="text-xl sm:text-2xl mt-4 font-mono bg-black/10 px-4 py-2 rounded-lg inline-block text-white">
             <span className="animate-pulse">🚀 Website Under Construction</span>
