@@ -51,4 +51,46 @@ const SKILLS = [
   'NPM',
 ];
 
-export { ACHIEVEMENTS, SKILLS };
+const EXPERIENCES = [
+  {
+    title: 'Frontend Developer (React, Next.js, TypeScript, GraphQL)',
+    company: 'Wealthy — BuildWealth Technologies Private Limited',
+    duration: 'June 2024 - Current',
+    location: 'Bangalore', // Add actual location if known
+    description: [
+      'Architected a Next.js CRM for 250+ partners managing 4Cr+ AUM, reducing manual data entry by 70% with bulk actions (add/edit/reassign/delete)',
+      'Reduced monthly reporting time by 30 hours via automated analytics dashboards',
+      'Pioneered real-time team hierarchy visualizations (nesting 10+ levels), boosting partner onboarding efficiency by 45%',
+      'Enabled tracking of 20+ sales metrics (SIPs, AUM growth, insurance premiums) across mutual funds, bonds and PMS',
+      'Mentored junior developers through code reviews and pair programming, improving team efficiency by 30%',
+      'Technologies: React, Next.js, TypeScript, GraphQL, TanStack Table',
+    ],
+  },
+  {
+    title: 'Frontend Engineer (Angular, React, TypeScript, RxJS, SCSS)',
+    company: 'Open Financial Technologies',
+    duration: 'July 2022 - May 2024',
+    location: 'Bangalore', // Add actual location if known
+    description: [
+      'Engineered banking module using Angular, CLI, RxJS as standalone components, enabling virtual payout/settlement accounts for 10+ banks',
+      'Cut payment processing time by 40% while handling 85M+/month transactions',
+      'Architected frontend for B2B Fintech (Open Money) streamlining invoice linking & payments for 3.5M+ businesses, processing $35B+ transactions',
+      'Designed Angular UI for loan applications (Term Loan, Line of Credit, BNPL), reducing submission time 25% and processing $4M+/month in loans',
+      'Spearheaded FOS web app for internal admin team and built BankingStack & Capital web apps using React.js',
+      'Technologies: Angular, React, TypeScript, RxJS, SCSS',
+    ],
+  },
+  {
+    title: 'Full-stack Intern (React, Node.js, TypeScript, Redux)',
+    company: 'ADPUSHUP',
+    duration: 'April 2022 - July 2022',
+    location: 'Delhi', // Add actual location if known
+    description: [
+      'Built stateful UIs using React/Redux/TypeScript and streamlined data pipelines via PySpark (RDD/DAG)',
+      'Engineered responsive UIs with React/Node.js and ad integrations using Mongoose, reducing latency by 20%',
+      'Technologies: React, Node.js, TypeScript, Redux, PySpark, Mongoose',
+    ],
+  },
+];
+
+export { ACHIEVEMENTS, SKILLS, EXPERIENCES };

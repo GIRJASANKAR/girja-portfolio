@@ -23,7 +23,7 @@ const Profile = () => {
       </div>
 
       {/* Main content */}
-      <div className="relative z-10 max-w-4xl">
+      <div className="relative max-w-4xl z-max">
         <h1 className="text-5xl sm:text-6xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
           Girja Sankar Tiwari
         </h1>
