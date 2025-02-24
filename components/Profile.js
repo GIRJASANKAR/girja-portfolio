@@ -1,59 +1,8 @@
+import { ACHIEVEMENTS, SKILLS, skills } from '@/constants/achievements';
 import Image from 'next/image';
 import Link from 'next/link';
 
 const Profile = () => {
-  const achievements = [
-    'Architected Next.js CRM for 250+ partners managing ₹4Cr+ AUM with 70% manual data reduction',
-    'Pioneered real-time team hierarchy visualizations boosting onboarding efficiency by 45%',
-    'Engineered Angular banking modules handling $5M+/month payouts for 10+ banks',
-    'Built B2B Fintech platform processing $35B+ transactions for 3.5M+ businesses',
-    'Designed loan application UI reducing submission time by 25% ($4M+/month processed)',
-    'Mentored junior developers resulting in 30% team efficiency improvement',
-    'Developed React-based FOS web app streamlining user data collection',
-    'Created PySpark data pipelines reducing system latency by 20%',
-    'Implemented bulk actions & automated dashboards saving 30 hours/month reporting',
-    'Spearheaded BankingStack & Capital web apps using React.js',
-    'Engineered mutual fund analytics tracking 20+ sales metrics in real-time',
-    'Built scalable ad integrations using Mongoose & Node.js',
-  ];
-
-  const skills = [
-    // Frontend
-    'HTML/CSS',
-    'JavaScript',
-    'TypeScript',
-    'React',
-    'Next.js',
-    'Angular',
-    'Redux',
-    'Zustand',
-    'RTK',
-    'RxJS',
-    'SASS',
-    'SCSS',
-    'Bootstrap',
-    'Tailwind',
-    'Jest',
-    'Angular Material',
-
-    // Backend
-    'Node.js',
-    'Express',
-
-    // Tools & Technologies
-    'GraphQL',
-    'MongoDB',
-    'Webpack',
-    'Vite',
-    'NX',
-    'Babel',
-    'Git',
-    'Jira',
-    'Postman',
-    'C/C++',
-    'PNPM',
-    'NPM',
-  ];
   return (
     <div className="min-h-screen p-8 sm:p-20 flex flex-col items-center justify-center gap-8 text-center relative overflow-hidden my-background">
       {/* Animated background elements */}
@@ -92,7 +41,7 @@ const Profile = () => {
         {/* Achievement ticker */}
         <div className="my-8 h-8 overflow-hidden relative">
           <div className="animate-achievementCycle absolute inset-0 space-y-2">
-            {achievements.map((achievement, index) => (
+            {ACHIEVEMENTS.map((achievement, index) => (
               <p key={index} className="text-gray-300 text-lg font-medium">
                 {achievement}
               </p>
@@ -102,7 +51,7 @@ const Profile = () => {
 
         {/* Animated skills grid */}
         <div className="flex flex-wrap justify-center gap-3 my-8">
-          {skills.map((skill, index) => (
+          {SKILLS.map((skill, index) => (
             <span
               key={skill}
               className="px-3 py-2 bg-gray-800/50 rounded-full text-white   text-sm animate-skillIn"
