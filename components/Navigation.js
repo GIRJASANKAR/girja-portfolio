@@ -12,19 +12,19 @@ const Navigation = () => {
         <Link href="/" className="text-white text-xl font-bold">
           GST
         </Link>
-        <div className="flex gap-6">
+        <div className="flex gap-6 cursor-pointer">
           {[
             { path: '/', label: 'Home' },
-            { path: '/about', label: 'About' },
-            { path: '/skills', label: 'Skills' },
             { path: '/experience', label: 'Experience' },
             { path: '/projects', label: 'Projects' },
+            { path: '/skills', label: 'Skills' },
             { path: '/contact', label: 'Contact' },
+            { path: '/about', label: 'About' },
           ].map(({ path, label }) => (
             <Link
               key={path}
               href={path}
-              className={`text-sm ${
+              className={`text-sm  ${
                 isActive(path)
                   ? 'text-blue-400 font-semibold'
                   : 'text-gray-300 hover:text-white'
