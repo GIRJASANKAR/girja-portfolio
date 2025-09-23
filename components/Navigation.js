@@ -68,7 +68,7 @@ const Navigation = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="flex md:hidden items-center gap-8">
             {navItems.map(({ id, label }) => (
               <button
                 key={id}
@@ -95,7 +95,7 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden relative w-8 h-6 flex flex-col justify-between"
+            className="hidden md:flex relative w-8 h-6 flex-col justify-between"
           >
             <span className={`w-full h-0.5 bg-white transition-all duration-300 ${
               mobileMenuOpen ? 'rotate-45 translate-y-2.5' : ''
@@ -111,7 +111,7 @@ const Navigation = () => {
       </nav>
 
       {/* Mobile Menu */}
-      <div className={`fixed inset-0 z-40 md:hidden transition-all duration-500 ${
+      <div className={`fixed inset-0 z-40 hidden md:block transition-all duration-500 ${
         mobileMenuOpen ? 'pointer-events-auto' : 'pointer-events-none'
       }`}>
         <div 
