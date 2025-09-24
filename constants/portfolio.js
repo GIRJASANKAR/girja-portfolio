@@ -1,8 +1,28 @@
 export const METRICS = [
-  { value: '$35B+', label: 'Transactions Processed', highlight: true },
-  { value: '3.5M+', label: 'Businesses Served', highlight: true },
-  { value: '37%', label: 'Conversion Increase', highlight: false },
-  { value: '70%', label: 'Automation Achieved', highlight: false }
+  { 
+    value: '$35B+', 
+    label: 'Payment Volume Handled', 
+    subtitle: 'Annually at Open Financial',
+    highlight: true 
+  },
+  { 
+    value: '3.5M+', 
+    label: 'Active B2B Users', 
+    subtitle: 'Across fintech platforms',
+    highlight: true 
+  },
+  { 
+    value: '37%', 
+    label: 'Faster Load Time', 
+    subtitle: 'Performance optimization',
+    highlight: false 
+  },
+  { 
+    value: '70%', 
+    label: 'Process Automation', 
+    subtitle: 'Manual tasks eliminated',
+    highlight: false 
+  }
 ];
 
 export const SKILLS = {
@@ -25,25 +45,25 @@ export const TECH_STACK = [
 
 export const PROJECTS = [
   {
-    title: 'Enterprise CRM Platform',
-    description: 'Next.js CRM managing ₹4Cr+ AUM for 250+ partners with 70% automation',
-    impact: 'Saved 30 hours/month in reporting',
-    tech: ['Next.js', 'GraphQL', 'TanStack Table', 'TypeScript'],
-    metrics: ['300+ Active Users', '60% Efficiency Gain', 'Real-time Analytics']
+    title: 'Wealth Management CRM Platform',
+    description: 'Built end-to-end CRM for financial advisors at Wealthy, managing ₹4Cr+ AUM across 250+ partners',
+    impact: 'Reduced manual reporting by 70%, saving 30+ hours monthly',
+    tech: ['Next.js 14', 'GraphQL', 'TanStack Table', 'TypeScript', 'Tailwind CSS'],
+    metrics: ['300+ Daily Active Users', '60% Operational Efficiency Gain', 'Real-time Portfolio Analytics', '99.9% Uptime']
   },
   {
-    title: 'B2B Fintech Platform',
-    description: 'Angular & React platform processing $35B+ transactions for 3.5M+ businesses',
-    impact: '40% faster payment processing',
-    tech: ['Angular', 'React', 'RxJS', 'TypeScript'],
-    metrics: ['$5M+/month volume', '10+ Bank Integrations', '25% Time Reduction']
+    title: 'B2B Payment Gateway Platform',
+    description: 'Developed payment infrastructure at Open Financial processing $35B+ in annual transaction volume',
+    impact: 'Improved payment success rate by 40% through UX optimization',
+    tech: ['Angular 15', 'React 18', 'RxJS', 'TypeScript', 'REST APIs'],
+    metrics: ['3.5M+ Business Users', '10+ Bank Integrations', '$5M+ Daily Volume', '25% Faster Checkout']
   },
   {
-    title: 'Banking Module Suite',
-    description: 'Standalone Angular components for virtual accounts across 10+ banks',
-    impact: 'Cut processing time by 40%',
-    tech: ['Angular CLI', 'RxJS', 'SCSS', 'TypeScript'],
-    metrics: ['$4M+/month loans', 'Multi-bank Support', 'Enterprise Scale']
+    title: 'Multi-Bank Virtual Account System',
+    description: 'Created modular banking components for instant account creation across multiple banks',
+    impact: 'Reduced account opening time from 48 hours to 5 minutes',
+    tech: ['Angular CLI', 'Micro-frontends', 'Web Components', 'TypeScript', 'SCSS'],
+    metrics: ['$4M+ Monthly Loan Processing', '10+ Bank Partners', '95% Automation Rate', 'PCI-DSS Compliant']
   }
 ];
 

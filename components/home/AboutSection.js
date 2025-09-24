@@ -15,18 +15,19 @@ export default function AboutSection() {
           <div className="p-6 rounded-2xl bg-white/5 backdrop-blur border border-white/10">
             <h3 className="text-xl sm:text-2xl font-bold mb-4 text-purple-400">Professional Summary</h3>
             <p className="text-sm sm:text-base text-gray-300 leading-relaxed mb-4">
-              I'm a passionate Frontend Engineer with 3+ years of experience building enterprise-scale fintech applications. 
-              Currently at Wealthy (BuildWealth Technologies), I architect solutions that manage ₹4Cr+ in assets and serve 250+ partners.
+              <span className="text-white font-semibold">Senior Frontend Developer</span> with 4+ years of experience architecting and building 
+              enterprise-grade fintech applications. Currently leading frontend development at <span className="text-cyan-400 font-semibold">Wealthy (BuildWealth Technologies)</span>, 
+              where I've built systems managing <span className="text-purple-400 font-semibold">₹4Cr+ AUM</span> for 250+ financial advisors.
             </p>
             <p className="text-sm sm:text-base text-gray-300 leading-relaxed mb-4">
-              My journey in tech began with a strong foundation in Computer Science from BTKIT, where I graduated with an 8.6 GPA. 
-              Since then, I've worked across the fintech spectrum - from building B2B platforms processing $35B+ in transactions at Open Financial 
-              to creating innovative CRM solutions that reduce manual operations by 70%.
+              Previously at <span className="text-cyan-400 font-semibold">Open Financial</span>, I developed B2B payment platforms that process 
+              <span className="text-purple-400 font-semibold"> $35B+ annually</span> for 3.5M+ businesses. My expertise spans the entire frontend ecosystem - 
+              from building micro-frontend architectures to optimizing performance for high-traffic applications.
             </p>
             <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
-              I specialize in React, Next.js, Angular, and TypeScript, with a focus on creating performant, scalable applications 
-              that deliver exceptional user experiences. My approach combines technical excellence with business acumen, 
-              ensuring that every line of code contributes to measurable business outcomes.
+              <span className="text-white font-semibold">Core Expertise:</span> React.js, Next.js, Angular, TypeScript, GraphQL, and modern state management. 
+              I focus on delivering <span className="text-cyan-400">measurable business impact</span> through clean code, optimal performance, 
+              and exceptional user experiences. Computer Science graduate (B.Tech) with 8.6 GPA from BTKIT, Dwarahat.
             </p>
           </div>
 
@@ -35,51 +36,51 @@ export default function AboutSection() {
             <h3 className="text-lg sm:text-xl font-bold mb-4 text-purple-400">Quick Stats</h3>
             <div className="grid grid-cols-2 gap-4">
               <div className="text-center p-3 rounded-lg bg-white/5">
-                <div className="text-2xl font-bold text-cyan-400">3+</div>
-                <div className="text-xs text-gray-400">Years Experience</div>
+                <div className="text-2xl font-bold text-cyan-400">4+</div>
+                <div className="text-xs text-gray-400">Years of Experience</div>
               </div>
               <div className="text-center p-3 rounded-lg bg-white/5">
-                <div className="text-2xl font-bold text-cyan-400">3</div>
-                <div className="text-xs text-gray-400">Companies</div>
+                <div className="text-2xl font-bold text-cyan-400">20+</div>
+                <div className="text-xs text-gray-400">Production Apps</div>
               </div>
               <div className="text-center p-3 rounded-lg bg-white/5">
-                <div className="text-2xl font-bold text-cyan-400">15+</div>
-                <div className="text-xs text-gray-400">Projects</div>
+                <div className="text-2xl font-bold text-cyan-400">3.5M+</div>
+                <div className="text-xs text-gray-400">End Users Served</div>
               </div>
               <div className="text-center p-3 rounded-lg bg-white/5">
-                <div className="text-2xl font-bold text-cyan-400">5+</div>
-                <div className="text-xs text-gray-400">Team Mentored</div>
+                <div className="text-2xl font-bold text-cyan-400">8+</div>
+                <div className="text-xs text-gray-400">Team Members Led</div>
               </div>
             </div>
           </div>
           
           {/* What I Bring to the Table */}
           <div className="p-6 rounded-2xl bg-white/5 backdrop-blur border border-white/10">
-            <h3 className="text-lg sm:text-xl font-bold mb-4 text-purple-400">What I Bring to the Table</h3>
+            <h3 className="text-lg sm:text-xl font-bold mb-4 text-purple-400">Core Competencies</h3>
             <div className="space-y-3">
               <div className="flex items-start">
                 <span className="text-cyan-400 mr-3">✓</span>
-                <span className="text-sm sm:text-base text-gray-300">Deep expertise in modern JavaScript frameworks</span>
+                <span className="text-sm sm:text-base text-gray-300"><span className="text-white font-medium">Enterprise Architecture:</span> Designed scalable frontend systems handling millions of users</span>
               </div>
               <div className="flex items-start">
                 <span className="text-cyan-400 mr-3">✓</span>
-                <span className="text-sm sm:text-base text-gray-300">Proven track record of delivering at scale</span>
+                <span className="text-sm sm:text-base text-gray-300"><span className="text-white font-medium">Performance Optimization:</span> Reduced load times by 37% through code splitting & lazy loading</span>
               </div>
               <div className="flex items-start">
                 <span className="text-cyan-400 mr-3">✓</span>
-                <span className="text-sm sm:text-base text-gray-300">Strong focus on performance optimization</span>
+                <span className="text-sm sm:text-base text-gray-300"><span className="text-white font-medium">Fintech Compliance:</span> Built PCI-DSS compliant payment interfaces & secure data handling</span>
               </div>
               <div className="flex items-start">
                 <span className="text-cyan-400 mr-3">✓</span>
-                <span className="text-sm sm:text-base text-gray-300">Experience with fintech compliance & security</span>
+                <span className="text-sm sm:text-base text-gray-300"><span className="text-white font-medium">Team Leadership:</span> Led frontend teams of 5-8 developers, conducted code reviews & mentoring</span>
               </div>
               <div className="flex items-start">
                 <span className="text-cyan-400 mr-3">✓</span>
-                <span className="text-sm sm:text-base text-gray-300">Leadership & mentoring capabilities</span>
+                <span className="text-sm sm:text-base text-gray-300"><span className="text-white font-medium">Cross-functional Collaboration:</span> Worked with Product, Design, Backend & QA teams</span>
               </div>
               <div className="flex items-start">
                 <span className="text-cyan-400 mr-3">✓</span>
-                <span className="text-sm sm:text-base text-gray-300">Agile methodology practitioner</span>
+                <span className="text-sm sm:text-base text-gray-300"><span className="text-white font-medium">Agile Development:</span> Sprint planning, daily standups, retrospectives & continuous delivery</span>
               </div>
             </div>
           </div>

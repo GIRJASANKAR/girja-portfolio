@@ -9,10 +9,10 @@ export default function HeroSection({ isLoaded, scrollToSection }) {
           {/* Role Badge */}
           <div className="flex flex-col md:flex-col sm:flex-row justify-center items-center gap-2 mb-6">
             <div className="inline-flex px-4 py-2 rounded-full border border-purple-500/30 bg-purple-500/10 text-sm text-purple-300">
-              Frontend Developer SDE @ Wealthy
+              Frontend Developer @ Wealthy
             </div>
             <div className="inline-flex px-4 py-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-sm text-cyan-300">
-              3.9+ YOE
+              4 Years Experience
             </div>
           </div>
           
@@ -27,49 +27,52 @@ export default function HeroSection({ isLoaded, scrollToSection }) {
 
           {/* Strong Value Proposition */}
           <div className="space-y-4 max-w-4xl mx-auto">
-            <h2 className="text-xl sm:text-2xl md:text-3xl text-white font-semibold">
-              Building Scalable Fintech Solutions at Enterprise Scale
+            <h2 className="text-xl sm:text-2xl md:text-3xl text-white font-semibold text-center">
+              Frontend Developer | Fintech Specialist
             </h2>
-            <p className="text-base sm:text-lg text-gray-400 leading-relaxed">
-              Result-driven Frontend Developer specializing in{' '}
-              <span className="text-cyan-400 font-semibold">React, Next.js, Angular & TypeScript</span>.
-              Successfully built CRM & Banking platforms processing{' '}
-              <span className="text-white font-semibold">$35B+ transactions</span> for{' '}
-              <span className="text-white font-semibold">3.5M+ businesses</span>.
+            <p className="text-base sm:text-lg text-gray-300 leading-relaxed text-center">
+              I build high-performance web applications that handle{' '}
+              <span className="text-cyan-400 font-semibold">billions in transactions</span> and serve{' '}
+              <span className="text-purple-400 font-semibold">millions of users</span>. 
+              Specialized in creating scalable fintech solutions using modern JavaScript frameworks
+              with a proven track record of delivering business-critical applications.
             </p>
           </div>
 
-          {/* Key Achievements Grid */}
+          {/* Key Achievements Grid - Desktop: 4 cols in a row, Mobile: 2x2 grid */}
           <div className="grid grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-4 md:gap-3 mt-12 md:mt-8 mb-8">
             {METRICS.map((metric, i) => (
               <div 
                 key={i} 
-                className={`p-4 rounded-xl backdrop-blur transition-all transform hover:scale-105 ${
+                className={`p-3 md:p-4 rounded-xl backdrop-blur transition-all transform hover:scale-105 ${
                   metric.highlight 
                     ? 'bg-gradient-to-br from-purple-500/20 to-cyan-500/20 border border-purple-500/30' 
                     : 'bg-white/5 border border-white/10 hover:bg-white/10'
                 }`}
               >
-                <div className="flex items-center justify-between">
-                  <div className={`text-2xl sm:text-2xl md:text-3xl font-bold ${
+                <div>
+                  <div className={`text-xl md:text-2xl lg:text-3xl font-bold mb-1 ${
                     metric.highlight 
                       ? 'bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent' 
                       : 'text-white'
                   }`}>
                     {metric.value}
                   </div>
-                  <div className="text-sm text-gray-400">{metric.label}</div>
+                  <div className="text-xs md:text-sm font-medium text-white">{metric.label}</div>
+                  {metric.subtitle && (
+                    <div className="text-xs text-gray-500 mt-0.5 hidden md:block">{metric.subtitle}</div>
+                  )}
                 </div>
               </div>
             ))}
           </div>
 
           {/* Tech Stack Pills */}
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8">
+          <div className="flex flex-wrap justify-center gap-2 mb-8">
             {TECH_STACK.map((tech) => (
               <div 
                 key={tech}
-                className="px-3 py-2 sm:px-4 rounded-full bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-white/20 text-xs sm:text-sm font-medium text-gray-300 hover:text-white transition-colors"
+                className="px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-white/20 text-xs sm:text-sm font-medium text-gray-300 hover:text-white transition-colors"
               >
                 {tech}
               </div>
@@ -77,14 +80,13 @@ export default function HeroSection({ isLoaded, scrollToSection }) {
           </div>
 
           {/* Experience Highlights */}
-          <div className="flex flex-col md:flex-col sm:flex-row justify-center items-center gap-4 mb-8">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-3 mb-8">
+            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/20">
               <span className="text-green-400">●</span>
-              <span className="text-gray-300 text-sm">Currently @ <span className="text-white font-semibold">Wealthy</span></span>
+              <span className="text-gray-200 text-xs sm:text-sm text-center">Currently: <span className="text-white font-semibold">Frontend Developer @ Wealthy</span></span>
             </div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10">
-              <span className="text-gray-400 text-sm">Previously:</span>
-              <span className="text-gray-300 text-sm">Open Financial • AdPushup • Altruism Labs</span>
+            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-white/5 border border-white/10">
+              <span className="text-gray-300 text-xs sm:text-sm text-center">Previously: Open Financial • AdPushup • Altruism Labs</span>
             </div>
           </div>
 
@@ -93,7 +95,7 @@ export default function HeroSection({ isLoaded, scrollToSection }) {
             <a
               href="/resume"
               target="_blank"
-              className="group relative px-8 py-3 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-lg font-semibold hover:shadow-lg hover:shadow-purple-500/25 transform hover:scale-105 transition-all md:w-full"
+              className="group relative px-8 py-3 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-lg font-semibold hover:shadow-lg hover:shadow-purple-500/25 transform hover:scale-105 transition-all w-full md:w-auto"
             >
               <span className="flex items-center justify-center gap-2">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -104,7 +106,7 @@ export default function HeroSection({ isLoaded, scrollToSection }) {
             </a>
             <button
               onClick={() => scrollToSection('contact')}
-              className="group px-8 py-3 border border-purple-500/50 rounded-lg font-semibold hover:bg-purple-500/10 transition-all md:w-full"
+              className="group px-8 py-3 border border-purple-500/50 rounded-lg font-semibold hover:bg-purple-500/10 transition-all w-full md:w-auto"
             >
               <span className="flex items-center justify-center gap-2">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

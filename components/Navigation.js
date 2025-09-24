@@ -60,11 +60,14 @@ const Navigation = () => {
       }`}>
         <div className="container mx-auto px-6 flex justify-between items-center">
           {/* Logo */}
-          <Link href="/" className="relative group">
-            <span className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
-              GST
-            </span>
-            <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-500 group-hover:w-full transition-all duration-300"></div>
+          <Link href="/" className="relative group flex items-center gap-2">
+            <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-cyan-500 to-purple-500 flex items-center justify-center">
+              <span className="text-white font-bold text-lg">G</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-xl font-bold text-white">Girja.</span>
+              <span className="text-xs text-gray-400 -mt-1">Frontend Developer</span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
