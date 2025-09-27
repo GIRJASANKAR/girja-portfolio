@@ -1,10 +1,11 @@
 import '@/styles/globals.css';
 import Navigation from '@/components/Navigation';
 import Head from 'next/head';
+import { ThemeProvider } from '@/contexts/ThemeContext';
 
 export default function App({ Component, pageProps }) {
   return (
-    <>
+    <ThemeProvider>
       <Head>
         <title>Girja Sankar Tiwari - Senior Frontend Developer | Fintech Specialist</title>
         <meta name="description" content="Senior Frontend Developer with 4+ years of experience building enterprise-scale fintech solutions. Specialized in React, Next.js, Angular, and TypeScript. Currently at Wealthy, previously at Open Financial." />
@@ -82,6 +83,6 @@ export default function App({ Component, pageProps }) {
         <Navigation />
         <Component {...pageProps} />
       </main>
-    </>
+    </ThemeProvider>
   );
 }

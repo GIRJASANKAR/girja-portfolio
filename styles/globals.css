@@ -3,6 +3,35 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Theme Variables */
+:root {
+  /* Light Theme - Clean and readable */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-tertiary: #f1f3f5;
+  --text-primary: #212529;
+  --text-secondary: #495057;
+  --text-tertiary: #6c757d;
+  --border-color: #dee2e6;
+  --accent-primary: #7c3aed;
+  --accent-secondary: #ec4899;
+  --card-bg: #ffffff;
+}
+
+[data-theme="dark"] {
+  /* Dark Theme */
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #111111;
+  --bg-tertiary: #1a1a1a;
+  --text-primary: #ffffff;
+  --text-secondary: #d1d5db;
+  --text-tertiary: #9ca3af;
+  --border-color: #374151;
+  --accent-primary: #06b6d4;
+  --accent-secondary: #a855f7;
+  --card-bg: rgba(17, 17, 17, 0.8);
+}
+
 /*
   1. Use a more-intuitive box-sizing model.
 */
@@ -107,9 +136,10 @@ html {
 }
 
 body {
-  background: #0a0a0a;
-  color: #ffffff;
+  background: var(--bg-primary);
+  color: var(--text-primary);
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .my-background {

@@ -49,7 +49,7 @@ export default function Home() {
   };
 
   return (
-    <div className="relative bg-[#0a0a0a] text-white overflow-x-hidden">
+    <div className="relative bg-white dark:bg-[#0a0a0a] text-gray-900 dark:text-white overflow-x-hidden transition-colors duration-300">
       <AnimatedBackground mousePos={mousePos} />
       <HeroSection isLoaded={isLoaded} scrollToSection={scrollToSection} />
       <AboutSection />

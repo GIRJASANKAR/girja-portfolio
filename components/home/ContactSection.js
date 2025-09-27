@@ -8,7 +8,7 @@ export default function ContactSection() {
           </span>
         </h2>
         
-        <p className="text-sm sm:text-lg text-gray-400 mb-12 max-w-2xl mx-auto text-center">
+        <p className="text-sm sm:text-lg text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto text-center">
           Currently building the future of wealth management at Wealthy. 
           Always open to discussing innovative fintech solutions and challenging opportunities.
         </p>
@@ -17,7 +17,7 @@ export default function ContactSection() {
           {/* Email */}
           <a
             href="mailto:tiwarigirjashankar36@gmail.com"
-            className="p-6 rounded-2xl bg-white/5 backdrop-blur border border-white/10 hover:bg-white/10 transition-all group md:flex md:items-center md:p-4"
+            className="p-6 rounded-2xl bg-gray-100 dark:bg-white/5 backdrop-blur border border-gray-200 dark:border-white/10 hover:bg-gray-200 dark:hover:bg-white/10 transition-all group md:flex md:items-center md:p-4"
           >
             <div className="w-12 h-12 mx-auto md:mx-0 mb-3 md:mb-0 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -25,8 +25,8 @@ export default function ContactSection() {
               </svg>
             </div>
             <div className="text-center md:text-left md:ml-4 md:flex-1">
-              <p className="text-sm text-gray-400">Email</p>
-              <p className="text-xs font-medium group-hover:text-purple-400 transition-colors break-all">tiwarigirjashankar36@gmail.com</p>
+              <p className="text-sm text-gray-600 dark:text-gray-400">Email</p>
+              <p className="text-xs font-medium text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors break-all">tiwarigirjashankar36@gmail.com</p>
             </div>
           </a>
 
@@ -34,7 +34,7 @@ export default function ContactSection() {
           <a
             href="https://linkedin.com/in/girja-sankar-tiwari"
             target="_blank"
-            className="p-6 rounded-2xl bg-white/5 backdrop-blur border border-white/10 hover:bg-white/10 transition-all group md:flex md:items-center md:p-4"
+            className="p-6 rounded-2xl bg-gray-100 dark:bg-white/5 backdrop-blur border border-gray-200 dark:border-white/10 hover:bg-gray-200 dark:hover:bg-white/10 transition-all group md:flex md:items-center md:p-4"
           >
             <div className="w-12 h-12 mx-auto md:mx-0 mb-3 md:mb-0 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center">
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -42,15 +42,15 @@ export default function ContactSection() {
               </svg>
             </div>
             <div className="text-center md:text-left md:ml-4 md:flex-1">
-              <p className="text-sm text-gray-400">LinkedIn</p>
-              <p className="text-sm font-medium group-hover:text-blue-400 transition-colors">Connect with me</p>
+              <p className="text-sm text-gray-600 dark:text-gray-400">LinkedIn</p>
+              <p className="text-sm font-medium text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Connect with me</p>
             </div>
           </a>
 
           {/* Phone */}
           <a
             href="tel:+919897747567"
-            className="p-6 rounded-2xl bg-white/5 backdrop-blur border border-white/10 hover:bg-white/10 transition-all group md:flex md:items-center md:p-4"
+            className="p-6 rounded-2xl bg-gray-100 dark:bg-white/5 backdrop-blur border border-gray-200 dark:border-white/10 hover:bg-gray-200 dark:hover:bg-white/10 transition-all group md:flex md:items-center md:p-4"
           >
             <div className="w-12 h-12 mx-auto md:mx-0 mb-3 md:mb-0 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -58,8 +58,8 @@ export default function ContactSection() {
               </svg>
             </div>
             <div className="text-center md:text-left md:ml-4 md:flex-1">
-              <p className="text-sm text-gray-400">Phone</p>
-              <p className="text-sm font-medium group-hover:text-green-400 transition-colors">+91 9897747567</p>
+              <p className="text-sm text-gray-600 dark:text-gray-400">Phone</p>
+              <p className="text-sm font-medium text-gray-900 dark:text-white group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors">+91 9897747567</p>
             </div>
           </a>
         </div>
@@ -67,7 +67,7 @@ export default function ContactSection() {
         <div className="text-center">
           <button
             onClick={() => window.location.href = 'mailto:tiwarigirjashankar36@gmail.com'}
-            className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-lg font-semibold text-base sm:text-lg hover:shadow-lg hover:shadow-purple-500/25 transform hover:scale-105 transition-all"
+            className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-lg font-semibold text-base sm:text-lg text-white hover:shadow-lg hover:shadow-purple-500/25 transform hover:scale-105 transition-all"
           >
             Start a Conversation
           </button>

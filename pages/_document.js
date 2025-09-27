@@ -2,7 +2,7 @@ import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
   return (
-    <Html lang="en">
+    <Html lang="en" className="dark">
       <Head>
         {/* Preconnect to external domains for performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -24,7 +24,7 @@ export default function Document() {
         {/* Manifest for PWA capabilities */}
         <link rel="manifest" href="/manifest.json" />
       </Head>
-      <body className="antialiased">
+      <body className="antialiased bg-gray-900 text-white">
         <Main />
         <NextScript />
       </body>

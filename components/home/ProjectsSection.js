@@ -15,14 +15,14 @@ export default function ProjectsSection() {
           {PROJECTS.map((project, index) => (
             <div 
               key={index}
-              className="group relative p-6 rounded-2xl bg-white/5 backdrop-blur border border-white/10 hover:bg-white/10 transition-all hover:scale-105"
+              className="group relative p-6 rounded-2xl bg-gray-100 dark:bg-white/5 backdrop-blur border border-gray-200 dark:border-white/10 hover:bg-gray-200 dark:hover:bg-white/10 transition-all hover:scale-105"
             >
               {/* Gradient Border Effect */}
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-cyan-500 to-purple-500 opacity-0 group-hover:opacity-20 blur-xl transition-opacity" />
               
               <div className="relative">
-                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-gray-400 text-sm mb-4">{project.description}</p>
+                <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">{project.title}</h3>
+                <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">{project.description}</p>
                 
                 <div className="mb-4 p-3 rounded-lg bg-purple-500/10 border border-purple-500/20">
                   <p className="text-sm text-purple-300 font-medium">💡 {project.impact}</p>
@@ -30,7 +30,7 @@ export default function ProjectsSection() {
 
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tech.map((tech, i) => (
-                    <span key={i} className="px-2 py-1 text-xs rounded bg-white/10 text-gray-300">
+                    <span key={i} className="px-2 py-1 text-xs rounded bg-gray-200 dark:bg-white/10 text-gray-700 dark:text-gray-300">
                       {tech}
                     </span>
                   ))}
@@ -38,7 +38,7 @@ export default function ProjectsSection() {
 
                 <div className="grid grid-cols-1 gap-2">
                   {project.metrics.map((metric, i) => (
-                    <div key={i} className="flex items-center text-xs text-gray-400">
+                    <div key={i} className="flex items-center text-xs text-gray-600 dark:text-gray-400">
                       <span className="w-2 h-2 rounded-full bg-cyan-400 mr-2" />
                       {metric}
                     </div>
@@ -54,7 +54,7 @@ export default function ProjectsSection() {
           <a 
             href="https://github.com/GIRJASANKAR"
             target="_blank"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-white/5 border border-purple-500/30 text-purple-400 hover:bg-purple-500/10 hover:text-purple-300 transition-all"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gray-100 dark:bg-white/5 border border-purple-500/30 text-purple-600 dark:text-purple-400 hover:bg-purple-100 dark:hover:bg-purple-500/10 hover:text-purple-700 dark:hover:text-purple-300 transition-all"
           >
             View more projects on GitHub
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
