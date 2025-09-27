@@ -6,6 +6,7 @@ import AboutSection from '@/components/home/AboutSection';
 import ExperienceSection from '@/components/home/ExperienceSection';
 import ProjectsSection from '@/components/home/ProjectsSection';
 import SkillsSection from '@/components/home/SkillsSection';
+import BlogSection from '@/components/home/BlogSection';
 import ContactSection from '@/components/home/ContactSection';
 
 export default function Home() {
@@ -56,6 +57,7 @@ export default function Home() {
       <ExperienceSection />
       <ProjectsSection />
       <SkillsSection />
+      <BlogSection />
       <ContactSection />
 
       <style jsx>{`

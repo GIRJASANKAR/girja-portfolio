@@ -2,8 +2,46 @@ import '@/styles/globals.css';
 import Navigation from '@/components/Navigation';
 import Head from 'next/head';
 import { ThemeProvider } from '@/contexts/ThemeContext';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 export default function App({ Component, pageProps }) {
+  const router = useRouter();
+  
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      // Force dark mode when navigating to blog routes
+      if (url.startsWith('/blog')) {
+        document.documentElement.classList.add('dark');
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        // Restore user's saved theme preference when leaving blog
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+          document.documentElement.setAttribute('data-theme', savedTheme);
+          if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        }
+      }
+    };
+
+    // Check initial route
+    if (router.pathname.startsWith('/blog')) {
+      document.documentElement.classList.add('dark');
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+
+    // Listen for route changes
+    router.events.on('routeChangeComplete', handleRouteChange);
+
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router]);
+
   return (
     <ThemeProvider>
       <Head>

@@ -15,7 +15,7 @@ const Navigation = () => {
       setScrolled(window.scrollY > 20);
       
       // Update active section based on scroll position
-      const sections = ['home', 'about', 'experience', 'projects', 'skills', 'contact'];
+      const sections = ['home', 'about', 'experience', 'projects', 'skills', 'blog', 'contact'];
       const scrollPosition = window.scrollY + 100;
       
       sections.forEach(section => {
@@ -46,13 +46,17 @@ const Navigation = () => {
     }
   };
 
+  const isHomePage = router.pathname === '/';
+  const isBlogPage = router.pathname.startsWith('/blog');
+
   const navItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'contact', label: 'Contact' },
+    { id: 'home', label: 'Home', isSection: true },
+    { id: 'about', label: 'About', isSection: true },
+    { id: 'experience', label: 'Experience', isSection: true },
+    { id: 'projects', label: 'Projects', isSection: true },
+    { id: 'skills', label: 'Skills', isSection: true },
+    { id: 'contact', label: 'Contact', isSection: true },
+    { id: 'blog', label: 'Blog', isSection: false, href: '/blog' },
   ];
 
   return (
@@ -76,44 +80,90 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="flex md:hidden items-center gap-6">
-            {navItems.map(({ id, label }) => (
-              <button
-                key={id}
-                onClick={() => scrollToSection(id)}
-                className="relative group"
-              >
-                <span className={`text-sm font-semibold transition-colors ${
-                  activeSection === id
-                    ? 'text-purple-700 dark:text-purple-400'
-                    : 'text-gray-700 dark:text-gray-300 hover:text-purple-700 dark:hover:text-white'
-                }`}>
-                  {label}
-                </span>
-                {activeSection === id && (
-                  <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-cyan-400 to-purple-500"></div>
-                )}
-                {activeSection !== id && (
+            {navItems.map(({ id, label, isSection, href }) => (
+              isSection && isHomePage ? (
+                <button
+                  key={id}
+                  onClick={() => scrollToSection(id)}
+                  className="relative group"
+                >
+                  <span className={`text-sm font-semibold transition-colors ${
+                    activeSection === id
+                      ? 'text-purple-700 dark:text-purple-400'
+                      : 'text-gray-700 dark:text-gray-300 hover:text-purple-700 dark:hover:text-white'
+                  }`}>
+                    {label}
+                  </span>
+                  {activeSection === id && (
+                    <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-cyan-400 to-purple-500"></div>
+                  )}
+                  {activeSection !== id && (
+                    <div className="absolute -bottom-2 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-500 group-hover:w-full transition-all duration-300"></div>
+                  )}
+                </button>
+              ) : !isSection ? (
+                <Link
+                  key={id}
+                  href={href}
+                  className="relative group"
+                >
+                  <span className={`text-sm font-semibold transition-colors ${
+                    isBlogPage
+                      ? 'text-purple-700 dark:text-purple-400'
+                      : 'text-gray-700 dark:text-gray-300 hover:text-purple-700 dark:hover:text-white'
+                  }`}>
+                    {label}
+                  </span>
+                  {isBlogPage && id === 'blog' && (
+                    <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-cyan-400 to-purple-500"></div>
+                  )}
+                  {!isBlogPage && (
+                    <div className="absolute -bottom-2 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-500 group-hover:w-full transition-all duration-300"></div>
+                  )}
+                </Link>
+              ) : !isHomePage && id === 'home' ? (
+                <Link
+                  key={id}
+                  href="/"
+                  className="relative group"
+                >
+                  <span className="text-sm font-semibold text-gray-700 dark:text-gray-300 hover:text-purple-700 dark:hover:text-white transition-colors">
+                    {label}
+                  </span>
                   <div className="absolute -bottom-2 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-500 group-hover:w-full transition-all duration-300"></div>
-                )}
-              </button>
+                </Link>
+              ) : isSection && !isHomePage ? (
+                <Link
+                  key={id}
+                  href={`/#${id}`}
+                  className="relative group"
+                >
+                  <span className="text-sm font-semibold text-gray-700 dark:text-gray-300 hover:text-purple-700 dark:hover:text-white transition-colors">
+                    {label}
+                  </span>
+                  <div className="absolute -bottom-2 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-500 group-hover:w-full transition-all duration-300"></div>
+                </Link>
+              ) : null
             ))}
             
-            {/* Theme Toggle Button */}
-            <button
-              onClick={toggleTheme}
-              className="ml-4 p-2.5 rounded-xl bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200 group border border-gray-300 dark:border-gray-600"
-              aria-label="Toggle theme"
-            >
-              {theme === 'dark' ? (
-                <svg className="w-5 h-5 text-yellow-500 group-hover:rotate-180 transition-transform duration-500" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd" />
-                </svg>
-              ) : (
-                <svg className="w-5 h-5 text-gray-700 group-hover:rotate-[-20deg] transition-transform" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-                </svg>
-              )}
-            </button>
+            {/* Theme Toggle Button - Only show when not on blog page */}
+            {!isBlogPage && (
+              <button
+                onClick={toggleTheme}
+                className="ml-4 p-2.5 rounded-xl bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200 group border border-gray-300 dark:border-gray-600"
+                aria-label="Toggle theme"
+              >
+                {theme === 'dark' ? (
+                  <svg className="w-5 h-5 text-yellow-500 group-hover:rotate-180 transition-transform duration-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd" />
+                  </svg>
+                ) : (
+                  <svg className="w-5 h-5 text-gray-700 group-hover:rotate-[-20deg] transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+                  </svg>
+                )}
+              </button>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -148,43 +198,78 @@ const Navigation = () => {
           mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}>
           <div className="p-8 pt-20 space-y-6">
-            {navItems.map(({ id, label }) => (
-              <button
-                key={id}
-                onClick={() => scrollToSection(id)}
-                className={`block w-full text-left text-lg font-medium transition-colors ${
-                  activeSection === id
-                    ? 'text-purple-600 dark:text-purple-400'
-                    : 'text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-white'
-                }`}
-              >
-                {label}
-              </button>
+            {navItems.map(({ id, label, isSection, href }) => (
+              isSection && isHomePage ? (
+                <button
+                  key={id}
+                  onClick={() => scrollToSection(id)}
+                  className={`block w-full text-left text-lg font-medium transition-colors ${
+                    activeSection === id
+                      ? 'text-purple-600 dark:text-purple-400'
+                      : 'text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-white'
+                  }`}
+                >
+                  {label}
+                </button>
+              ) : !isSection ? (
+                <Link
+                  key={id}
+                  href={href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`block w-full text-left text-lg font-medium transition-colors ${
+                    isBlogPage && id === 'blog'
+                      ? 'text-purple-600 dark:text-purple-400'
+                      : 'text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-white'
+                  }`}
+                >
+                  {label}
+                </Link>
+              ) : !isHomePage && id === 'home' ? (
+                <Link
+                  key={id}
+                  href="/"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block w-full text-left text-lg font-medium text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-white transition-colors"
+                >
+                  {label}
+                </Link>
+              ) : isSection && !isHomePage ? (
+                <Link
+                  key={id}
+                  href={`/#${id}`}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block w-full text-left text-lg font-medium text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-white transition-colors"
+                >
+                  {label}
+                </Link>
+              ) : null
             ))}
             
-            {/* Mobile Theme Toggle */}
-            <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
-              <button
-                onClick={toggleTheme}
-                className="w-full flex items-center justify-between p-3 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-              >
-                <span className="text-gray-700 dark:text-gray-300">Theme</span>
-                <div className="flex items-center gap-2">
-                  <span className="text-sm text-gray-600 dark:text-gray-400">
-                    {theme === 'dark' ? 'Dark' : 'Light'}
-                  </span>
-                  {theme === 'dark' ? (
-                    <svg className="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-                    </svg>
-                  ) : (
-                    <svg className="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd" />
-                    </svg>
-                  )}
-                </div>
-              </button>
-            </div>
+            {/* Mobile Theme Toggle - Only show when not on blog page */}
+            {!isBlogPage && (
+              <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
+                <button
+                  onClick={toggleTheme}
+                  className="w-full flex items-center justify-between p-3 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                >
+                  <span className="text-gray-700 dark:text-gray-300">Theme</span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm text-gray-600 dark:text-gray-400">
+                      {theme === 'dark' ? 'Dark' : 'Light'}
+                    </span>
+                    {theme === 'dark' ? (
+                      <svg className="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+                      </svg>
+                    ) : (
+                      <svg className="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd" />
+                      </svg>
+                    )}
+                  </div>
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>
