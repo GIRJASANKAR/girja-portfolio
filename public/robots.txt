@@ -1,0 +1,12 @@
+# Robots.txt for www.girja.co.in
+# Allow all crawlers
+
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://www.girja.co.in/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
