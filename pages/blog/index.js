@@ -62,16 +62,16 @@ export default function BlogPage() {
 
           {/* Search Bar */}
           <div className="max-w-2xl mx-auto mb-8">
-            <div className="relative">
+            <div className="relative group">
               <input
                 type="text"
-                placeholder="Search articles..."
+                placeholder="Search by title, content, or tags..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-6 py-3 rounded-full bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-cyan-500 dark:focus:border-cyan-400 transition-colors"
+                className="w-full pl-12 pr-6 py-4 rounded-full bg-gray-50 dark:bg-gray-800/50 border-2 border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-cyan-500 dark:focus:border-cyan-400 focus:bg-white dark:focus:bg-gray-800 transition-all duration-200"
               />
               <svg
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-500 dark:text-gray-400"
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 dark:text-gray-500 group-focus-within:text-cyan-500 dark:group-focus-within:text-cyan-400 transition-colors"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -83,7 +83,23 @@ export default function BlogPage() {
                   d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                 />
               </svg>
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery('')}
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 p-1 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                  aria-label="Clear search"
+                >
+                  <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              )}
             </div>
+            {searchQuery && (
+              <p className="text-sm text-gray-600 dark:text-gray-400 mt-2 text-center">
+                Found {filteredPosts.length} article{filteredPosts.length !== 1 ? 's' : ''} matching "{searchQuery}"
+              </p>
+            )}
           </div>
 
           {/* Category Filter */}
@@ -109,8 +125,8 @@ export default function BlogPage() {
             })}
           </div>
 
-          {/* Featured Posts Section */}
-          {selectedCategory === BLOG_CATEGORIES.ALL && featuredPosts.length > 0 && (
+          {/* Featured Posts Section - Only show when not searching */}
+          {!searchQuery && selectedCategory === BLOG_CATEGORIES.ALL && featuredPosts.length > 0 && (
             <div className="mb-12">
               <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
                 Featured Articles
@@ -123,11 +139,17 @@ export default function BlogPage() {
             </div>
           )}
 
-          {/* All Posts Grid */}
+          {/* Search Results or All Posts Grid */}
           <div>
-            {selectedCategory === BLOG_CATEGORIES.ALL && featuredPosts.length > 0 && (
+            {!searchQuery && selectedCategory === BLOG_CATEGORIES.ALL && featuredPosts.length > 0 && (
               <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
                 All Articles
+              </h2>
+            )}
+            
+            {searchQuery && filteredPosts.length > 0 && (
+              <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
+                Search Results
               </h2>
             )}
             
@@ -140,29 +162,41 @@ export default function BlogPage() {
             ) : (
               <div className="text-center py-12">
                 <p className="text-gray-500 dark:text-gray-400">
-                  No articles found matching your criteria.
+                  {searchQuery 
+                    ? `No articles found matching "${searchQuery}"`
+                    : 'No articles found in this category.'
+                  }
                 </p>
               </div>
             )}
           </div>
 
           {/* Newsletter CTA */}
-          <div className="mt-16 p-8 rounded-2xl bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/20 text-center">
+          <div className="mt-16 p-8 rounded-2xl bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/20 text-center relative overflow-hidden">
             <h3 className="text-2xl font-bold mb-3 text-gray-900 dark:text-white">
               Stay Updated
             </h3>
             <p className="text-gray-600 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
               Get notified when I publish new articles about frontend development, system design, and personal growth.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md mx-auto">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md mx-auto opacity-50 pointer-events-none">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="w-full sm:flex-1 px-4 py-2 rounded-lg bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-cyan-500 dark:focus:border-cyan-400"
+                disabled
+                className="w-full sm:flex-1 px-4 py-2 rounded-lg bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 cursor-not-allowed"
               />
-              <button className="w-full sm:w-auto px-6 py-2 rounded-lg bg-gradient-to-r from-cyan-500 to-purple-500 text-white font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all">
+              <button disabled className="w-full sm:w-auto px-6 py-2 rounded-lg bg-gradient-to-r from-cyan-500 to-purple-500 text-white font-semibold cursor-not-allowed">
                 Subscribe
               </button>
+            </div>
+            <div className="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-100 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-700/50">
+              <svg className="w-4 h-4 text-amber-600 dark:text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
+              </svg>
+              <span className="text-xs font-medium text-amber-700 dark:text-amber-300">
+                Newsletter feature coming soon! Backend integration in progress.
+              </span>
             </div>
           </div>
         </div>

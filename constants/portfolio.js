@@ -69,4 +69,4 @@ export const PROJECTS = [
 
 export const INTERESTS = ['Open Source', 'Fintech', 'UI/UX', 'Web3', 'AI/ML', 'Cloud Tech'];
 
-export const SECTIONS = ['home', 'about', 'experience', 'projects', 'skills', 'blog', 'contact'];
+export const SECTIONS = ['home', 'about', 'experience', 'projects', 'skills', 'contact'];

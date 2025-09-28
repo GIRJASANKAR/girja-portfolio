@@ -15,7 +15,7 @@ const Navigation = () => {
       setScrolled(window.scrollY > 20);
       
       // Update active section based on scroll position
-      const sections = ['home', 'about', 'experience', 'projects', 'skills', 'blog', 'contact'];
+      const sections = ['home', 'about', 'experience', 'projects', 'skills', 'contact'];
       const scrollPosition = window.scrollY + 100;
       
       sections.forEach(section => {
@@ -105,21 +105,18 @@ const Navigation = () => {
                 <Link
                   key={id}
                   href={href}
-                  className="relative group"
+                  className="relative group ml-3"
                 >
-                  <span className={`text-sm font-semibold transition-colors ${
+                  <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-semibold transition-all ${
                     isBlogPage
-                      ? 'text-purple-700 dark:text-purple-400'
-                      : 'text-gray-700 dark:text-gray-300 hover:text-purple-700 dark:hover:text-white'
+                      ? 'bg-gradient-to-r from-cyan-500 to-purple-500 text-white shadow-lg shadow-purple-500/25'
+                      : 'bg-gray-100 dark:bg-white/5 text-gray-700 dark:text-gray-300 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-purple-500 hover:text-white hover:shadow-lg hover:shadow-purple-500/25 border border-gray-200 dark:border-white/10'
                   }`}>
                     {label}
+                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
                   </span>
-                  {isBlogPage && id === 'blog' && (
-                    <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-cyan-400 to-purple-500"></div>
-                  )}
-                  {!isBlogPage && (
-                    <div className="absolute -bottom-2 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-500 group-hover:w-full transition-all duration-300"></div>
-                  )}
                 </Link>
               ) : !isHomePage && id === 'home' ? (
                 <Link
@@ -216,13 +213,18 @@ const Navigation = () => {
                   key={id}
                   href={href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`block w-full text-left text-lg font-medium transition-colors ${
-                    isBlogPage && id === 'blog'
-                      ? 'text-purple-600 dark:text-purple-400'
-                      : 'text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-white'
-                  }`}
+                  className="block w-full"
                 >
-                  {label}
+                  <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-lg font-medium transition-all ${
+                    isBlogPage && id === 'blog'
+                      ? 'bg-gradient-to-r from-cyan-500 to-purple-500 text-white'
+                      : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                  }`}>
+                    {label}
+                    <svg className="w-4 h-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </div>
                 </Link>
               ) : !isHomePage && id === 'home' ? (
                 <Link

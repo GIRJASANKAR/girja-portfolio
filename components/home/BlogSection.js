@@ -6,7 +6,7 @@ export default function BlogSection() {
   const featuredPosts = getFeaturedPosts();
 
   return (
-    <section id="blog" className="min-h-screen py-20 px-6">
+    <section className="min-h-screen py-20 px-6">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4">
           <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
