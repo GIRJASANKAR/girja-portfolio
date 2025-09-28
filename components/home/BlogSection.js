@@ -31,7 +31,7 @@ export default function BlogSection() {
         </div>
 
         {/* Featured Blog Posts */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {featuredPosts.slice(0, 3).map((post) => (
             <BlogCard key={post.id} post={post} />
           ))}

@@ -131,7 +131,7 @@ export default function BlogPage() {
               <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
                 Featured Articles
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-6">
                 {featuredPosts.map((post) => (
                   <BlogCard key={post.id} post={post} />
                 ))}
@@ -154,7 +154,7 @@ export default function BlogPage() {
             )}
             
             {filteredPosts.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredPosts.map((post) => (
                   <BlogCard key={post.id} post={post} />
                 ))}
